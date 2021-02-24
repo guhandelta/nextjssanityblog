@@ -39,7 +39,7 @@ export default createSchema({
           title: 'Title',
           validation: Rule =>[
             Rule.required().min(10).error('A title with minimun 5 characters is required'),
-            Rule.max(35).error("Shorter titles look better")
+            Rule.max(35).error("Shorter titles look better ")
           ] 
         },
         {
@@ -52,6 +52,34 @@ export default createSchema({
           name: 'coverImage',
           type: 'image',
           title: 'Cover Image',
+          validation: Rule => Rule.required()
+        },
+        {
+          name: 'content',
+          type: 'array',
+          title: 'content',
+          of: [
+            {
+              type: 'block'
+            },
+            {
+              type: 'image',
+              fields: [
+                {
+                  type: 'text',
+                  name: 'alt',
+                  title: 'Description',
+                  options: {
+                    isHighlighted: true
+                  }
+                }
+              ],
+              options:{
+                // For cropping the image to pick the section of the image to be always in focus, when displaying on the app
+                hotspot: true
+              }
+            }
+          ],
           validation: Rule => Rule.required()
         },
         {
