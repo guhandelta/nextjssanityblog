@@ -52,6 +52,13 @@ export default createSchema({
           name: 'coverImage',
           type: 'image',
           title: 'Cover Image',
+          fields: [
+            {
+              type: 'text',
+              name: 'alt',
+              title: 'Description',
+            }
+          ],
           validation: Rule => Rule.required()
         },
         {
@@ -69,7 +76,7 @@ export default createSchema({
                   type: 'text',
                   name: 'alt',
                   title: 'Description',
-                  options: {
+                  options: { //Will add the rich text editor
                     isHighlighted: true
                   }
                 }
@@ -77,6 +84,12 @@ export default createSchema({
               options:{
                 // For cropping the image to pick the section of the image to be always in focus, when displaying on the app
                 hotspot: true
+              }
+            },
+            {
+              type: 'code',
+              options:{
+                withFileName: true
               }
             }
           ],
