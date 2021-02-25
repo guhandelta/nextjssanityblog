@@ -52,6 +52,10 @@ export default createSchema({
           name: 'coverImage',
           type: 'image',
           title: 'Cover Image',
+          // To allow cropping the images
+          options:{
+            hotspot: true
+          },
           fields: [
             {
               type: 'text',
