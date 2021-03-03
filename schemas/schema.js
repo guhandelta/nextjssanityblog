@@ -129,7 +129,7 @@ export default createSchema({
         },
         {
           name: 'slug',
-          type: 'string',
+          type: 'slug',
           title: 'Slug',
           validation: Rule => Rule.required()
         },
